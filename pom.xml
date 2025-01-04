@@ -6,7 +6,7 @@
 
     <groupId>com.github.manevolent</groupId>
     <artifactId>ts3j</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.2-nx</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -36,8 +36,8 @@
 
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.67</version>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>1.77</version>
         </dependency>
 
         <dependency>

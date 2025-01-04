@@ -2,6 +2,7 @@ package com.github.manevolent.ts3j.protocol.socket.client;
 
 import com.github.manevolent.ts3j.api.Ban;
 import com.github.manevolent.ts3j.api.Channel;
+import com.github.manevolent.ts3j.api.ChannelProperty;
 import com.github.manevolent.ts3j.api.Client;
 import com.github.manevolent.ts3j.api.Permission;
 import com.github.manevolent.ts3j.audio.Microphone;
@@ -1258,6 +1259,16 @@ public class LocalTeamspeakClientSocket
             return iterator.next();
         else
             return null;
+    }
+
+    public void editChannel(int channelId, Map<ChannelProperty, String> values) throws IOException, TimeoutException, CommandException, InterruptedException {
+        SingleCommand command = new SingleCommand(
+                "channeledit",
+                ProtocolRole.CLIENT,
+                new CommandSingleParameter("cid", Integer.toString(channelId))
+        );
+        values.forEach((k, v) -> command.add(new CommandSingleParameter(k.getName(), v)));
+        executeCommand(command).get();
     }
 
     public void disconnect()
