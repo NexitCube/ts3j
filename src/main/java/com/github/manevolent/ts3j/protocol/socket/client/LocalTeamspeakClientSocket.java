@@ -476,6 +476,8 @@ public class LocalTeamspeakClientSocket
     ) throws IOException, TimeoutException {
         final ClientCommandResponse<Iterable<T>> response;
 
+        System.out.println("DEBUG: " + command.build() + ", " + command.getRole() + ", " + command.getName());
+
         synchronized (commandSendLock) {
             if (getState() == ClientConnectionState.DISCONNECTED)
                 throw new IOException("not connected");
